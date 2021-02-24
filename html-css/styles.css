@@ -12,3 +12,171 @@ the font is called 'nunito' and can be found on google fonts
 ***you can use it if you'd like or you can choose your own***
 
 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --black: rgb(37, 37, 37);
+  --blue: rgb(42, 171, 226);
+  --shadow: rgba(102, 75, 75, 0.3);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Nunito', sans-serif;
+  /* font-weight: bolder; */
+  display: grid;
+  grid-template-rows: 100px auto;
+  grid-template-columns: 0.8fr 4fr 1.5fr 0.6fr;
+  grid-template-areas:
+    '. . . .'
+    ' . Main Profile . '
+    'Footer Footer Footer Footer';
+}
+
+/* formating grid of the website  */
+
+/* header CSS  */
+
+header {
+  /* grid-area: Header; */
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  color: var(--blue);
+  background-color: var(--black);
+  position: fixed;
+}
+
+nav {
+  width: 33%;
+}
+
+ul {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  color: white;
+}
+
+li {
+  margin: auto;
+}
+
+/* profile section */
+
+.profile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 3rem 2rem 3rem 2rem;
+}
+
+.top-profile-section {
+  font-size: 1.5rem;
+  font-weight: bolder;
+  border-radius: 15px;
+  box-shadow: 0 0 60px var(--shadow);
+  margin-bottom: 3rem;
+  padding: 30px 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.top-profile-section img {
+  height: 90%;
+  width: 90%;
+}
+
+.bottom-profile-section {
+  border-radius: 15px;
+  box-shadow: 0 0 60px var(--shadow);
+  width: 100%;
+  /* padding: 0 0.4rem; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.2rem;
+}
+
+.bottom-profile-section h4 {
+  margin-bottom: 0;
+}
+
+.bottom-profile-section ol li {
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0.6rem 0 0.6rem 0;
+}
+
+/* main content  */
+
+main {
+  grid-area: Main;
+}
+
+h2 {
+  font-weight: bolder;
+}
+
+main p {
+  margin: 0px;
+}
+
+a {
+  text-decoration: none;
+  position: relative;
+  color: var(--blue);
+  float: right;
+}
+
+.images {
+  width: 100%;
+  height: auto;
+  clear: both;
+  column-count: 3;
+  margin: 40px 30px;
+}
+
+.images img {
+  height: 150px;
+  width: 200px;
+}
+
+.top-row {
+  margin-bottom: 60px;
+}
+
+section {
+  grid-area: Profile;
+}
+
+footer {
+  grid-area: Footer;
+  background-color: var(--blue);
+  color: black;
+}
+
+footer h3 {
+  margin-left: 2rem;
+}
+
+#question {
+  background-color: var(--blue);
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+/* just so everything fits while I test  */
