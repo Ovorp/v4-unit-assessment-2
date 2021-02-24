@@ -171,12 +171,19 @@ footer h3 {
 }
 
 #question {
+  height: 40px;
+  width: 40px;
   background-color: var(--blue);
   position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   bottom: 0;
-  right: 0;
+  right: 40px;
   font-size: 20px;
   font-weight: 900;
+  border: var(--black) 3px solid;
+  border-radius: 50%;
 }
 
 /* just so everything fits while I test  */
