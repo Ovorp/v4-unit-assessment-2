@@ -26,7 +26,7 @@ let foods = [
     protein: 5,
     fat: 7,
   },
-]
+];
 //DO NOT EDIT THE CODE ABOVE
 
 /*
@@ -35,6 +35,10 @@ let foods = [
   and then adding the results together. 
 */
 
+foods.forEach((val) => {
+  let cals = val.carbs * 4 + val.protein * 4 + val.fat * 9;
+  val.calories = cals;
+});
 //CODE HERE
 
 //////////////////////////////////PROBLEMS 2-4//////////////////////////////////
@@ -70,7 +74,7 @@ const products = [
     color: ['blue', 'red'],
     price: 1000,
   },
-]
+];
 //DO NOT EDIT CODE ABOVE
 
 ////////////////////PROBLEM 2////////////////////
@@ -79,7 +83,10 @@ const products = [
   Using the map method, make a copy of your products array with the prices reduced by 25%. 
   Save the copy to a new variable called 'saleProducts'.
 */
-
+const saleProducts = products.map((val) => {
+  val.price *= 0.75;
+  return val;
+});
 //CODE HERE
 
 ////////////////////PROBLEM 3////////////////////
@@ -89,7 +96,7 @@ const products = [
   to a new variable called 'blueProducts'. 
   (Hint: look up the array method 'includes' on MDN)
 */
-
+const blueProducts = saleProducts.filter((val) => val.color.includes('blue'));
 //CODE HERE
 
 ////////////////////PROBLEM 4////////////////////
@@ -98,7 +105,7 @@ const products = [
   Use the reduce method to add up the prices of the blueProducts. 
   Save the result to a variable called orderTotal.
 */
-
+const orderTotal = blueProducts.reduce((acc, val) => acc + val.price, 0);
 //CODE HERE
 
 //////////////////////////////////PROBLEMS 5-8//////////////////////////////////
@@ -112,7 +119,7 @@ const contactInfo = {
   name: 'Helen',
   phoneNumber: 1234445555,
   email: 'helen@mymail.com',
-}
+};
 
 const shippingInfo = {
   name: 'Helen',
@@ -120,7 +127,7 @@ const shippingInfo = {
   city: 'Anytown',
   state: 'AZ',
   zipCode: 85004,
-}
+};
 //DO NOT EDIT CODE ABOVE
 
 ////////////////////PROBLEM 5////////////////////
@@ -128,7 +135,7 @@ const shippingInfo = {
   Using the Object.assign method, create a new object called 'helensInfo'
   that combines the contactInfo and shippingInfo objects.
 */
-
+const helensInfo = Object.assign(contactInfo, shippingInfo);
 //CODE HERE
 
 ////////////////////PROBLEM 6////////////////////
@@ -139,12 +146,14 @@ const shippingInfo = {
 */
 
 //CODE HERE
-
+const ellensInfo = { ...helensInfo };
+ellensInfo.name = 'Ellen';
+ellensInfo.email = 'ellen@email.com';
 ////////////////////PROBLEM 7////////////////////
 /* 
   Save Ellen's email to a new variable using destructuring.
 */
-
+const { email } = ellensInfo;
 //CODE HERE
 
 ////////////////////PROBLEM 8////////////////////
@@ -154,7 +163,7 @@ const shippingInfo = {
 */
 
 //CODE HERE
-
+const { zipCode, state } = shippingInfo;
 //////////////////////////////////PROBLEMS 9-11//////////////////////////////////
 /*
   Use the userInfo object below to complete problems 9-11.
@@ -206,7 +215,7 @@ const userInfo = {
       ],
     },
   ],
-}
+};
 //DO EDIT CODE ABOVE
 
 ////////////////////PROBLEM 9////////////////////
@@ -214,7 +223,7 @@ const userInfo = {
   Set the value of shouldAlert to the value of alerts in gn@rly_c0der_007's settings
   using dot notation.
 */
-
+const shouldAlert = userInfo.settings.alerts;
 //CODE HERE
 
 ////////////////////PROBLEM 10////////////////////
@@ -222,7 +231,7 @@ const userInfo = {
   Set the value of topic below to the last item in gn@rly_c0der_007's topics array
   using dot and/or bracket notation.
 */
-
+const topic = userInfo.topics[userInfo.topics.length - 1];
 //CODE HERE
 
 ////////////////////PROBLEM 11////////////////////
@@ -230,7 +239,7 @@ const userInfo = {
   Set the value of commenterId below to the userId of the first response to 
   gn@rly_c0der_007's 2nd comment using dot/bracket notation.
 */
-
+const commenterId = userInfo.comments[1].responses[0].userId;
 //CODE HERE
 
 ////////////////////PROBLEM 12////////////////////
@@ -249,7 +258,29 @@ const userInfo = {
       - each kid should have a name (string) and an age (number)
       - create at least 2 kid objects
 */
-
+const person = {
+  name: 'Nathaniel',
+  age: 31,
+  jobs: ['chemist', 'study director', 'web dev'],
+  birthday() {
+    this.age++;
+  },
+  favorites: {
+    color: 'green',
+    number: 7,
+    book: `Ender's Game`,
+  },
+  kids: [
+    {
+      name: 'McKay',
+      age: 4,
+    },
+    {
+      name: 'Emily',
+      age: 1.5,
+    },
+  ],
+};
 //CODE HERE
 
 //////////////////////////////////PROBLEMS 13-14//////////////////////////////////
@@ -269,14 +300,14 @@ const workout = {
   duration: 45,
   complete: false,
   doWorkout: function () {
-    return (this.complete = true)
+    return (this.complete = true);
   },
-}
+};
 
 //let context1 = myFunc
 //let context1 = window
 //let context1 = global
-// let context1 = workout
+let context1 = workout;
 
 ////////////////////PROBLEM 14////////////////////
 /*
@@ -285,10 +316,10 @@ const workout = {
 */
 
 function myFunc() {
-  return this
+  return this;
 }
 
-//let context2 = myFunc
-// let context2 = window
+// let context2 = myFunc;
+let context2 = window;
 //let context2 = global
 //let context2 = workout
